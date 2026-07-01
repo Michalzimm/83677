@@ -27,3 +27,4 @@ Due to integration challenges encountered late in the development cycle, certain
 * The custom HTTP server initializes and establishes network bindings successfully.
 * The frontend layout resources load properly, and the visual computational graph parses and renders correctly upon deployment.
 * Publishing parameter values directly via the input web forms successfully pushes data to the streaming pipeline and updates the summary tracking tables immediately (as illustrated in the Output picture).
+* The internal computation executes successfully, but its output is not displayed on the screen due to an unresolved issue.
