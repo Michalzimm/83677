@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computational Graph Visualization</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #fafafa;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top header bar styling */
+        .title-bar {
+            padding: 10px 15px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Container element where the network nodes and edges will be drawn */
+        #graph-container {
+            width: 100%;
+            height: calc(100% - 45px); /* Subtract header height */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-bar">Computational Graph (Active Dynamic Configuration)</div>
+    <div id="graph-container"></div>
+
+    <script type="text/javascript">
+        // These placeholders will be dynamically replaced by the Java view layer (HtmlGraphWriter)
+        const nodes = new vis.DataSet([ __NODES_DATA__ ]);
+        const edges = new vis.DataSet([ __EDGES_DATA__ ]);
+
+        // Set visual layout and physics rendering options
+        const container = document.getElementById('graph-container');
+        const data = { nodes: nodes, edges: edges };
+        
+        const options = {
+            nodes: {
+                margin: 10,
+                font: {
+                    size: 14,
+                    color: '#333333',
+                    face: 'Arial'
+                },
+                borderWidth: 2
+            },
+            edges: {
+                arrows: {
+                    to: { enabled: true, scaleFactor: 1.2 } // Enable directed arrow pointing to target node
+                },
+                color: {
+                    color: '#848484',
+                    highlight: '#ff0000' // Highlights the edge in red when clicked
+                },
+                width: 2,
+                smooth: {
+                    enabled: true,
+                    type: 'cubicBezier' // Provides clean curved paths for arrows
+                }
+            },
+            physics: {
+                enabled: true, // Enables dynamic spring physics allowing nodes to adjust automatically when dragged
+                barnesHut: {
+                    gravitationalConstant: -2000,
+                    centralGravity: 0.3,
+                    springLength: 95
+                }
+            }
+        };
+
+        // Initialize and render the network graph inside the HTML canvas container
+        const network = new vis.Network(container, data, options);
+    </script>
+</body>
+</html>

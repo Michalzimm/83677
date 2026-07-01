@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Controls and Forms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input[type="text"], input[type="file"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h3>App Configuration</h3>
+        <form action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data" target="graphFrame">
+            <div class="form-group">
+                <label for="configFile">Select Configuration File:</label>
+                <input type="file" id="configFile" name="file" accept=".conf" required>
+            </div>
+            <button type="submit">deploy</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Publish Message</h3>
+        <form action="http://localhost:8080/publish" method="GET" target="tableFrame">
+            <div class="form-group">
+                <label for="topic">Topic Name:</label>
+                <input type="text" id="topic" name="topic" placeholder="e.g., A" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (Double):</label>
+                <input type="text" id="message" name="message" placeholder="e.g., 5.0" required>
+            </div>
+            <button type="submit">Publish</button>
+        </form>
+    </div>
+
+</body>
+</html>

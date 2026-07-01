@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computational Graph - Main Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* 3-Column layout configuration using iframes */
+        iframe {
+            border: 1px solid #ccc;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Left frame: forms and controls */
+        #left-frame {
+            flex: 1;
+        }
+
+        /* Center frame: graph visualization */
+        #center-frame {
+            flex: 2;
+        }
+
+        /* Right frame: values and agents table */
+        #right-frame {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="left-frame" src="from.html" name="controlsFrame"></iframe>
+
+    <iframe id="center-frame" src="temp.html" name="graphFrame"></iframe>
+
+    <iframe id="right-frame" src="temp.html" name="tableFrame"></iframe>
+
+</body>
+</html>

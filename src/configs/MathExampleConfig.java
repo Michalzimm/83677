@@ -1,0 +1,28 @@
+package configs;
+
+public class MathExampleConfig implements Config {
+
+    @Override
+    public void create() {
+        new BinOpAgent("plus", "A", "B", "R1", (x,y)->x+y);
+        new BinOpAgent("minus", "A", "B", "R2", (x,y)->x-y);
+        new BinOpAgent("mul", "R1", "R2", "R3", (x,y)->x*y);
+    }
+
+    @Override
+    public String getName() {
+        return "Math Example";
+    }
+
+    @Override
+    public int getVersion() {
+        return 1;
+    }
+
+    // Added to satisfy the updated Config interface contract in exercise 4
+    @Override
+    public void close() {
+        // No dynamic parallel agents are tracked inside this static configuration example
+    }
+    
+}
