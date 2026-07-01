@@ -1,4 +1,4 @@
-# Exercise 5 - Web Computational Graph Server
+# Exercise 6 - Web Computational Graph Server
 
 ## Background
 This project implements a multi-threaded HTTP Server designed to manage and visualize a computational pipeline graph. The architecture integrates a custom network infrastructure (MyHTTPServer, RequestParser) with web servlet handlers (ConfLoader, TopicDisplayer, HtmlLoader) and an underlying messaging pipeline based on the Publish-Subscribe pattern (TopicManager, ParallelAgent, BinOpAgent). The application parses structural topology configurations, processes continuous dynamic token streams, and displays computational state summaries in real-time.
@@ -26,4 +26,4 @@ Due to integration challenges encountered late in the development cycle, certain
 **Working Features:**
 * The custom HTTP server initializes and establishes network bindings successfully.
 * The frontend layout resources load properly, and the visual computational graph parses and renders correctly upon deployment.
-* Publishing parameter values directly via the input web forms successfully pushes data to the streaming pipeline and updates the summary tracking tables immediately (as illustrated in the Output log references).
+* Publishing parameter values directly via the input web forms successfully pushes data to the streaming pipeline and updates the summary tracking tables immediately (as illustrated in the Output picture).
